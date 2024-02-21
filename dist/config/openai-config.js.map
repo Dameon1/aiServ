@@ -1,0 +1,1 @@
+{"version":3,"file":"openai-config.js","sourceRoot":"","sources":["../../src/config/openai-config.ts"],"names":[],"mappings":"AAAA,OAAO,aAAa,MAAM,QAAQ,CAAA;AAElC,MAAM,UAAU,eAAe;IAC3B,MAAM,MAAM,GAAG,IAAI,aAAa,CAAC;QAC7B,MAAM,EAAE,OAAO,CAAC,GAAG,CAAC,iBAAiB;QACrC,YAAY,EAAE,OAAO,CAAC,GAAG,CAAC,WAAW;KACxC,CAAC,CAAA;IACF,OAAO,MAAM,CAAC;AAClB,CAAC"}
