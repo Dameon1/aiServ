@@ -6,7 +6,7 @@ import { configureOpenAI } from "../config/openai-config.js";
 //import { createToken } from "../utils/token-manager.js";
 //import { COOKIE_NAME } from "../utils/constants.js";
 //import { hash, compare } from "bcrypt";
-import Configuration from "openai";
+//import Configuration from "openai";
 import OpenAI from "openai";
 //import  createChatCompletion  from "openai"
 
@@ -34,12 +34,12 @@ export const generateChatCompletion = async (
     apiKey: process.env.OPENAI_API_SECRET,
     organization: process.env.OPEN_AI_ORG,
   });
-  const completion = await openai.chat.completions.create({
+  const chatResponse = await openai.chat.completions.create({
     messages: [{ role: "system", content: "You are a helpful assistant." }],
     model: "gpt-3.5-turbo",
   });
-  user.chats.push(completion.choices[0].message);
-  console.log(completion.choices[0]);
+  user.chats.push(chatResponse.choices[0].message);
+  console.log(chatResponse.choices[0]);
   await user.save();
   return res.status(200).json({chats: user.chats});
     
