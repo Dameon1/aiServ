@@ -23,19 +23,12 @@ export const generateChatCompletion = async (
   chats.push({ content: message, role: "user" });
   user.chats.push({ content: message, role: "user" });
 
-  //const config = configureOpenAI();
-  //   const config = new Configuration({
-  //     apiKey: process.env.OPENAI_API_SECRET,
-  //     organization: process.env.OPEN_AI_ORG
-  // })
-
-  //const openai = new OpenAI();
   const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_SECRET,
     organization: process.env.OPEN_AI_ORG,
   });
   const chatResponse = await openai.chat.completions.create({
-    messages: [{ role: "system", content: "You are a helpful assistant." }],
+    messages: [{ role: "user", content: message }],
     model: "gpt-3.5-turbo",
   });
   user.chats.push(chatResponse.choices[0].message);
