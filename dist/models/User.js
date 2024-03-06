@@ -3,7 +3,7 @@ import { randomUUID } from "crypto";
 const chatSchema = new mongoose.Schema({
     id: {
         type: String,
-        defaut: randomUUID(),
+        default: randomUUID(),
     },
     role: {
         type: String,
