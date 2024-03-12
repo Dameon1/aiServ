@@ -42,8 +42,7 @@ export const generateChatCompletion = async (
     res.status(500).json({ message: error.message });
   }
 
-  //const chatResponse = await openai.createChatCompletionRequest
-  //({model:"gpt-3.5-turbo"})
+  
 };
 
 export const sendChatsToUser = async (
