@@ -8,7 +8,7 @@ chatRoutes.post("/new",
  validate(chatCompletionValidator), verifyToken, 
 generateChatCompletion);
 
-chatRoutes.get("/all-chats", verifyToken, sendChatsToUser);
+chatRoutes.get("/all-chats", sendChatsToUser);
 
 
 
