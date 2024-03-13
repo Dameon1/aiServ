@@ -13,7 +13,7 @@ export const generateChatCompletion = async (
   try {
     const user = await User.findById(res.locals.jwtData.id);
     console.log("Test");
-    if (!user) return res.status(405).json({ message: "No such user" });
+    if (!user) return res.status(401).json({ message: "No such user" });
     const chats = user.chats.map(({ role, content }) => ({ role, content }));
     chats.push({ content: message, role: "user" });
     user.chats.push({ content: message, role: "user" });
@@ -44,7 +44,9 @@ export const sendChatsToUser = async (
 ) => {
   try {
     //user token check
+    console.log(res.locals.jwtData.id)
     const user = await User.findById(res.locals.jwtData.id);
+    console.log("user:",user)
     if (!user) {
       return res.status(401).send("User not registered OR Token malfunctioned");
     }

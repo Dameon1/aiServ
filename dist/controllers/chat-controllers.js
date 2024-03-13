@@ -34,7 +34,9 @@ export const generateChatCompletion = async (req, res, next) => {
 export const sendChatsToUser = async (req, res, next) => {
     try {
         //user token check
+        console.log(res.locals.jwtData.id);
         const user = await User.findById(res.locals.jwtData.id);
+        console.log("user:", user);
         if (!user) {
             return res.status(401).send("User not registered OR Token malfunctioned");
         }
